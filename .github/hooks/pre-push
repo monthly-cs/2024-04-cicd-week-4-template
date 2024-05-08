@@ -1,7 +1,17 @@
 #!/bin/sh
 echo "[Git Hooks][Pre-Push] 실행"
 
+# npx prettier --write .
+output=$(npx prettier --list-different .)
 npx prettier --write .
+
+while IFS= read -r file; do
+    echo "[Git Hooks][Pre-Push] git add $file"
+    git add "$file"
+done <<< "$output"
+
+git commit -m "Formatting : Prettier is auto-work by git hooks"
+
 
 # changed_file_by_prettier=$(npx prettier --list-different .)
 # if [ -z "$changed_file_by_prettier" ]; then
