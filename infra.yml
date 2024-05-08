@@ -1,7 +1,7 @@
 # Create : aws cloudformation create-stack --stack-name monthly-cs-dns --template-body file://infra.yml --on-failure ROLLBACK --region us-east-1 --profile edint_official
 # Update : aws cloudformation update-stack --stack-name monthly-cs-dns --template-body file://infra.yml --region us-east-1 --profile edint_official
 # Delete : aws cloudformation delete-stack --stack-name monthly-cs-dns --profile edint_official
-AWSTemplateFormatVersion: '2010-09-09'
+AWSTemplateFormatVersion: "2010-09-09"
 Description: Route53 Example
 
 Resources:
